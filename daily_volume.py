@@ -5,6 +5,10 @@ import camelot
 from camelot import read_pdf
 import pandas as pd
 
+# choose directory on your PC and put 'DailyBulletin_20220914177' file there.
+# Put the address of the directory in the line below and wait until 'INST.xlsx' will appear in the same folder.
+
+wait and untill document will be processed and 
 files = glob.glob("C:/Users/Anatoliy/PycharmProjects/pythonProject/cme/*.pdf")
 for file in files:
     tables = camelot.read_pdf(file, flavor='stream', pages='1-20')
