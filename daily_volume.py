@@ -1,7 +1,8 @@
-import camelot
 import json
 import glob
 import re
+import camelot
+from camelot import read_pdf
 import pandas as pd
 
 files = glob.glob("C:/Users/Anatoliy/PycharmProjects/pythonProject/cme/*.pdf")
@@ -36,63 +37,6 @@ for file in files:
             for i in data:
                 for n in (i.values()):
                     b111 = re.findall(r'\w+', str(n))
-
-                    if 'EURO' in b111:
-                        if 'FX' in b111:
-                            if 'FUTURES' in b111:
-                                if 'MINI' not in b111:
-                                    row = '10_Euro'
-                                    scrap(i)
-
-                    if 'JAPANESE' in b111:
-                        if 'FUTURE' in b111:
-                            if 'YEN' in b111:
-                                if 'MINI' not in b111:
-                                    row = '11_JPY'
-                                    scrap(i)
-
-                    if 'BRITISH' in b111:
-                        if 'FUTURE' in b111:
-                            if 'POUND' in b111:
-                                row = '12_GBP'
-                                scrap(i)
-
-                    if 'AUSTRALIAN' in b111:
-                        if 'FUTURES' in b111:
-                            if 'DLR' in b111:
-                                row = '13_AUD'
-                                scrap(i)
-
-
-                    if 'CANADIAN' in b111:
-                        if 'FUTURE' in b111:
-                            if 'DOLLAR' in b111:
-                                row = '14_CAD'
-                                scrap(i)
-
-                    if 'MEXICAN' in b111:
-                        if 'FUTURE' in b111:
-                            if 'PESO' in b111:
-                                row = '15_MPESO'
-                                scrap(i)
-
-                    if 'SWISS' in b111:
-                        if 'FUTURES' in b111:
-                            if 'FRANC' in b111:
-                                row = '16_FRANK'
-                                scrap(i)
-
-                    if 'NEW' in b111:
-                        if 'FUTURES' in b111:
-                            if 'ZEALAND' in b111:
-                                row = '17_NZD'
-                                scrap(i)
-
-                    if 'RUSSIAN' in b111:
-                        if 'FUTURES' in b111:
-                            if 'RUBLE' in b111:
-                                row = '18_RUBLE'
-                                scrap(i)
 
                     if 'NYMEX' in b111:
                         if 'CRUDE' in b111:
@@ -211,17 +155,3 @@ for file in files:
     print(df)
     df = df.drop_duplicates()
     df.to_excel('INST.xlsx', index=False)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
